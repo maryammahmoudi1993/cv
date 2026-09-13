@@ -88,4 +88,4 @@ Featured-project descriptions are based on the projects' own README files:
 - [DocPilot AI](https://github.com/maryammahmoudi1993/DocPilot-AI---Document-Intelligence---Workflow-Copilot)
 - [SupportPilot AI](https://github.com/maryammahmoudi1993/SupportPilot-AI)
 
-DocPilot AI is explicitly presented as a portfolio demonstration project. Publication venue and submission status are not stated until confirmed.
+DocPilot AI is explicitly presented as a portfolio demonstration project. The listed review paper is submitted and under review; its venue remains unstated until confirmed.
