@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maryammahmoudi1993.github.io/cv/sitemap.xml

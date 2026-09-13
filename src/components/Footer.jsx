@@ -1,5 +1,4 @@
 const Footer = () => {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   return (
     <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +16,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {['about', 'research', 'projects', 'experience', 'contact'].map((id) => (
-                <li key={id}><button type="button" onClick={() => scrollTo(id)} className="text-gray-300 hover:text-white capitalize">{id}</button></li>
+                <li key={id}><a href={`#${id}`} className="text-gray-300 hover:text-white capitalize">{id}</a></li>
               ))}
             </ul>
           </div>
