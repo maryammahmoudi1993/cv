@@ -1,6 +1,16 @@
 const Experience = () => {
             const experiences = [
                 {
+                    company: 'National Yunlin University of Science and Technology (YunTech)',
+                    role: 'Research Intern',
+                    location: 'Yunlin, Taiwan',
+                    period: 'Current',
+                    achievements: [
+                        'Conducting AI research under Prof. Arun Kumar Sangaiah',
+                        'Combining research work with implementation-focused software engineering'
+                    ]
+                },
+                {
                     company: 'Inboxino',
                     role: 'Python Developer',
                     location: 'Mashhad, Iran',
