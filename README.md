@@ -44,7 +44,7 @@ npm ci
 npm run dev
 ```
 
-Vite prints the local URL in the terminal, normally `http://localhost:5173`.
+Vite prints the local URL in the terminal. The portfolio is served under its GitHub Pages base path, normally `http://localhost:5173/cv/`.
 
 ## Production build
 
