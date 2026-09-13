@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Production and SSR build output
+dist/
+dist-ssr/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Tooling and logs
+.vite/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
