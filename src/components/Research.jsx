@@ -16,7 +16,7 @@ const Research = () => (
         </article>
         <article className="lg:col-span-3 bg-light-bg dark:bg-slate-800 p-8 rounded-lg shadow-lg">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent-light dark:text-accent-dark mb-3">
-            Review paper · Submitted · Under review
+            Review paper · Submitted to RSER · Under review
           </p>
           <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-4">
             Hybrid Digital Twins for Microbial Fuel Cell Systems in Microgravity: Combining Physical Models and Artificial Intelligence for Predictive Autonomous Control
