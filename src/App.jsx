@@ -2,6 +2,7 @@ import ThemeProvider from './components/ThemeProvider.jsx';
 import Navigation from './components/Navigation.jsx';
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
+import Research from './components/Research.jsx';
 import Blog from './components/Blog.jsx';
 import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
@@ -18,11 +19,12 @@ export default function App() {
         <main>
           <Hero />
           <About />
-          <Blog />
-          <Skills />
+          <Research />
           <Projects />
+          <Skills />
           <Experience />
           <Education />
+          <Blog />
           <Contact />
         </main>
         <Footer />

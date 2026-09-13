@@ -3,32 +3,32 @@ const Skills = () => {
                 {
                     title: 'Languages',
                     icon: 'fas fa-code',
-                    skills: ['Python', 'PHP', 'SQL', 'HTML/CSS']
+                    skills: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'PHP']
                 },
                 {
                     title: 'Frameworks',
                     icon: 'fas fa-layer-group',
-                    skills: ['Django', 'Flask', 'FastAPI', 'Selenium', 'Jinja2']
+                    skills: ['Django', 'Django REST Framework', 'React', 'FastAPI', 'Celery']
                 },
                 {
                     title: 'AI/ML Libraries',
                     icon: 'fas fa-brain',
-                    skills: ['TensorFlow', 'PyTorch', 'HuggingFace', 'Transformers', 'LangChain', 'OpenAI API']
+                    skills: ['TensorFlow', 'PyTorch', 'Transformers', 'LangChain', 'Gemini', 'XGBoost', 'SHAP']
                 },
                 {
                     title: 'DevOps & Tools',
                     icon: 'fas fa-tools',
-                    skills: ['Docker', 'Git', 'Redis', 'Linux', 'Agile', 'Testing']
+                    skills: ['Docker', 'GitHub Actions', 'Linux', 'pytest', 'CI/CD', 'Observability']
                 },
                 {
                     title: 'Databases',
                     icon: 'fas fa-database',
-                    skills: ['PostgreSQL', 'MySQL', 'SQLAlchemy', 'Redis']
+                    skills: ['PostgreSQL', 'pgvector', 'MySQL', 'Redis', 'MinIO']
                 },
                 {
                     title: 'APIs & Integration',
                     icon: 'fas fa-plug',
-                    skills: ['RESTful API', 'FastAPI', 'OpenAI API', 'Third-party Integrations']
+                    skills: ['REST APIs', 'OpenAPI', 'JWT & RBAC', 'Webhooks', 'RAG', 'Tool Calling']
                 }
             ];
 
