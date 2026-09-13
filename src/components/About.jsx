@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import behzadImage from '../../behzadazizan.png';
-import fatemeImage from '../../fatemenikdelfaz.png';
+import behzadImage from '../../behzadazizan.webp';
+import fatemeImage from '../../fatemenikdelfaz.webp';
 import resumeUrl from '../../My CV (Maryam Mahmoudi).pdf?url';
 
 const recommendations = [
@@ -25,7 +25,7 @@ const RecommendationCard = ({ recommendation }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <article className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-4">
-      <img src={recommendation.img} alt={recommendation.alt} className="w-16 h-16 rounded-full object-cover border-2 border-primary-light dark:border-primary-dark" />
+      <img src={recommendation.img} alt={recommendation.alt} width="128" height="128" loading="lazy" className="w-16 h-16 rounded-full object-cover border-2 border-primary-light dark:border-primary-dark" />
       <div className="flex-1">
         <p className="text-text-secondary-light dark:text-text-secondary-dark mb-3 italic">
           {expanded ? recommendation.full : recommendation.short}

@@ -1,4 +1,4 @@
-import blogImage from '../../LLMs and LangChain to Understand Customer Emotions and Behaviors in Real-Time.png';
+import blogImage from '../../blog-llm-langchain.webp';
 
 const Blog = () => {
             const blogPosts = [
@@ -33,6 +33,9 @@ const Blog = () => {
                                         <img 
                                             src={post.image} 
                                             alt={post.title}
+                                            width="960"
+                                            height="540"
+                                            loading="lazy"
                                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
