@@ -1,4 +1,4 @@
-import profileImage from '../../me.png';
+import profileImage from '../../me.webp';
 import resumeUrl from '../../My CV (Maryam Mahmoudi).pdf?url';
 
 const Hero = () => (
@@ -8,6 +8,9 @@ const Hero = () => (
         <img
           src={profileImage}
           alt="Maryam Mahmoudi"
+          width="384"
+          height="384"
+          fetchPriority="high"
           className="w-48 h-48 mx-auto mb-8 rounded-full border-4 border-white shadow-2xl object-cover"
         />
         <p className="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-blue-100 mb-4">
