@@ -4,7 +4,7 @@ const Experience = () => {
                     company: 'National Yunlin University of Science and Technology (YunTech)',
                     role: 'Research Intern',
                     location: 'Yunlin, Taiwan',
-                    period: 'Current',
+                    period: 'April 2026 – Sep 2026',
                     achievements: [
                         'Conducting AI research under Prof. Arun Kumar Sangaiah',
                         'Combining research work with implementation-focused software engineering'
