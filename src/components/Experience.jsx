@@ -61,7 +61,7 @@ const Experience = () => {
                         
                         <div className="space-y-8">
                             {experiences.map((exp, index) => (
-                                <div key={index} className="bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg">
+                                <article key={index} className="bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg">
                                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                                         <div>
                                             <h3 className="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark">
@@ -88,7 +88,7 @@ const Experience = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
+                                </article>
                             ))}
                         </div>
                     </div>

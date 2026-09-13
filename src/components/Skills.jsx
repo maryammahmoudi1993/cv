@@ -44,7 +44,7 @@ const Skills = () => {
                         
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {skillCategories.map((category, index) => (
-                                <div key={index} className="skill-card bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg">
+                                <article key={index} className="skill-card bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg">
                                     <div className="flex items-center mb-4">
                                         <i className={`${category.icon} text-2xl text-primary-light dark:text-primary-dark mr-3`}></i>
                                         <h3 className="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark">
@@ -61,7 +61,7 @@ const Skills = () => {
                                             </span>
                                         ))}
                                     </div>
-                                </div>
+                                </article>
                             ))}
                         </div>
                     </div>
