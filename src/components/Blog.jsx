@@ -1,97 +1,65 @@
 import blogImage from '../../blog-llm-langchain.webp';
+import Eyebrow from './ui/Eyebrow.jsx';
+import Tag from './ui/Tag.jsx';
 
-const Blog = () => {
-            const blogPosts = [
-                {
-                    title: "How I Used LLMs and LangChain to Understand Customer Emotions and Behaviors in Real-Time",
-                    description: "A comprehensive guide on implementing real-time customer sentiment analysis using Large Language Models and LangChain framework.",
-                    url: "https://medium.com/@mahmoodi.maryam1993/how-i-used-llms-and-langchain-to-understand-customer-emotions-and-behaviors-in-real-time-89c64bedd3d4",
-                    date: "2025",
-                    readTime: "5 min read",
-                    tags: ["LLM", "LangChain", "Sentiment Analysis", "Customer Analytics"],
-                    image: blogImage
-                }
-            ];
+const post = {
+  title: 'How I Used LLMs and LangChain to Understand Customer Emotions and Behaviors in Real-Time',
+  description: 'A comprehensive guide on implementing real-time customer sentiment analysis using Large Language Models and LangChain framework.',
+  url: 'https://medium.com/@mahmoodi.maryam1993/how-i-used-llms-and-langchain-to-understand-customer-emotions-and-behaviors-in-real-time-89c64bedd3d4',
+  date: '2025',
+  readTime: '5 min read',
+  tags: ['LLM', 'LangChain', 'Sentiment Analysis', 'Customer Analytics'],
+  image: blogImage,
+};
 
-            return (
-                <section id="blog" className="py-20 bg-white dark:bg-slate-900">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">
-                                Latest Blog Posts
-                            </h2>
-                            <div className="w-24 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
-                            <p className="text-text-secondary-light dark:text-text-secondary-dark max-w-2xl mx-auto mt-6">
-                                Sharing insights and experiences from my journey in AI and data science
-                            </p>
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {blogPosts.map((post, index) => (
-                                <article key={index} className="bg-light-bg dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                    <div className="aspect-video overflow-hidden">
-                                        <img 
-                                            src={post.image} 
-                                            alt={post.title}
-                                            width="960"
-                                            height="540"
-                                            loading="lazy"
-                                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                        />
-                                    </div>
-                                    <div className="p-6">
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="text-sm text-text-secondary-light dark:text-text-secondary-dark">
-                                                {post.date}
-                                            </span>
-                                            <span className="text-sm text-accent-light dark:text-accent-dark font-medium">
-                                                {post.readTime}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-3 line-clamp-2">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-text-secondary-light dark:text-text-secondary-dark mb-4 line-clamp-3">
-                                            {post.description}
-                                        </p>
-                                        <div className="flex flex-wrap gap-2 mb-4">
-                                            {post.tags.map((tag, tagIndex) => (
-                                                <span 
-                                                    key={tagIndex}
-                                                    className="px-2 py-1 bg-primary-light/10 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark rounded text-xs font-medium"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <a 
-                                            href={post.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center text-accent-light dark:text-accent-dark hover:text-accent-dark dark:hover:text-accent-light font-medium transition-colors"
-                                        >
-                                            Read on Medium
-                                            <i className="fas fa-external-link-alt ml-2"></i>
-                                        </a>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
-                        
-                        <div className="text-center mt-12">
-                            <a 
-                                href="https://medium.com/@mahmoodi.maryam1993"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-6 py-3 bg-primary-light dark:bg-primary-dark text-white font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-blue-400 transition-colors"
-                            >
-                                <i className="fab fa-medium mr-2"></i>
-                                View All Posts
-                            </a>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+const Blog = () => (
+  <section id="blog" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
+    <Eyebrow>Latest Blog Posts</Eyebrow>
+    <h2 className="m-0 mb-3 font-display font-semibold text-[clamp(26px,3.2vw,40px)] tracking-tight text-white">
+      Latest Blog Posts
+    </h2>
+    <p className="m-0 mb-8 nav:mb-10 text-[clamp(15px,1.1vw,17px)] leading-relaxed text-ink-secondary">
+      Sharing insights and experiences from my journey in AI and data science
+    </p>
+    <article className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6 nav:gap-9 items-center p-5 nav:p-[30px] rounded-3xl border border-white/10 card-surface">
+      <img
+        src={post.image}
+        alt={post.title}
+        width="960"
+        height="540"
+        loading="lazy"
+        className="w-full h-[clamp(200px,24vw,300px)] object-cover rounded-2xl"
+      />
+      <div>
+        <p className="m-0 mb-3 font-mono text-xs tracking-[0.1em] text-[#f3a2a6]">{post.date} &middot; {post.readTime}</p>
+        <h3 className="m-0 mb-3 font-display font-semibold text-[clamp(19px,2vw,25px)] leading-snug text-white text-pretty">
+          {post.title}
+        </h3>
+        <p className="m-0 mb-[18px] text-[15px] leading-relaxed text-ink-secondary text-pretty">{post.description}</p>
+        <ul className="m-0 mb-5 p-0 flex flex-wrap gap-2">
+          {post.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </ul>
+        <div className="flex flex-wrap gap-2.5">
+          <a
+            href={post.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-brand text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(181,31,40,0.45)]"
+          >
+            Read on Medium <span aria-hidden="true">&#8599;</span>
+          </a>
+          <a
+            href="https://medium.com/@mahmoodi.maryam1993"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/[0.16] bg-white/[0.04] text-white font-semibold text-sm transition-colors duration-200 hover:bg-white/10"
+          >
+            View All Posts
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+);
 
 export default Blog;

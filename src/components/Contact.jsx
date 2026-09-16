@@ -1,33 +1,41 @@
 const contacts = [
-  { label: 'Email', value: 'mahmoodi.maryam1993@gmail.com', href: 'mailto:mahmoodi.maryam1993@gmail.com', icon: 'fas fa-envelope' },
-  { label: 'LinkedIn', value: 'maryam-mahmoudi-8882857b', href: 'https://www.linkedin.com/in/maryam-mahmoudi-8882857b/', icon: 'fab fa-linkedin' },
-  { label: 'GitHub', value: 'maryammahmoudi1993', href: 'https://github.com/maryammahmoudi1993', icon: 'fab fa-github' },
+  { label: 'Email', value: 'mahmoodi.maryam1993@gmail.com', href: 'mailto:mahmoodi.maryam1993@gmail.com' },
+  { label: 'LinkedIn', value: 'maryam-mahmoudi-8882857b', href: 'https://www.linkedin.com/in/maryam-mahmoudi-8882857b/' },
+  { label: 'GitHub', value: 'maryammahmoudi1993', href: 'https://github.com/maryammahmoudi1993' },
 ];
 
 const Contact = () => (
-  <section id="contact" className="py-20 bg-white dark:bg-slate-900">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">Let’s Build Something Dependable</h2>
-        <div className="w-24 h-1 bg-primary-light dark:bg-primary-dark mx-auto mb-6"></div>
-        <p className="text-text-secondary-light dark:text-text-secondary-dark max-w-2xl mx-auto">
-          I’m open to research collaboration and software engineering opportunities at the intersection of backend systems and applied AI.
-        </p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-5">
+  <section id="contact" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
+    <div className="relative overflow-hidden p-7 nav:p-[72px] rounded-[30px] border border-white/[0.12] contact-glow">
+      <p className="m-0 mb-3.5 font-mono text-xs tracking-[0.22em] uppercase text-[#f3c3c5]">Contact</p>
+      <h2 className="m-0 mb-4 font-display font-bold text-[clamp(28px,4vw,52px)] leading-[1.1] tracking-tight text-white text-balance">
+        Let&rsquo;s Build Something Dependable
+      </h2>
+      <p className="m-0 mb-8 nav:mb-10 max-w-[62ch] text-[clamp(15px,1.2vw,18px)] leading-relaxed text-[#e3c6c8] text-pretty">
+        I&rsquo;m open to research collaboration and software engineering opportunities at the intersection of backend systems and applied AI.
+      </p>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-3.5 mb-8 nav:mb-9">
         {contacts.map((contact) => (
-          <a key={contact.label} href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noreferrer' : undefined} className="bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg text-center hover:-translate-y-1 transition-transform">
-            <i className={`${contact.icon} text-3xl text-primary-light dark:text-primary-dark mb-4`} aria-hidden="true"></i>
-            <strong className="block text-text-primary-light dark:text-text-primary-dark mb-1">{contact.label}</strong>
-            <span className="text-sm text-text-secondary-light dark:text-text-secondary-dark break-words">{contact.value}</span>
+          <a
+            key={contact.label}
+            href={contact.href}
+            target={contact.href.startsWith('http') ? '_blank' : undefined}
+            rel={contact.href.startsWith('http') ? 'noreferrer' : undefined}
+            className="block p-[22px] rounded-[18px] border border-white/[0.14] bg-black/[0.28] transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.35]"
+          >
+            <strong className="block mb-1.5 font-mono font-medium text-[11px] tracking-[0.16em] uppercase text-[#f3a2a6]">
+              {contact.label}
+            </strong>
+            <span className="text-[15px] text-white break-words">{contact.value}</span>
           </a>
         ))}
       </div>
-      <div className="text-center mt-10">
-        <a href="mailto:mahmoodi.maryam1993@gmail.com" className="inline-block px-8 py-4 bg-primary-light dark:bg-primary-dark text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
-          <i className="fas fa-paper-plane mr-2" aria-hidden="true"></i>Start a Conversation
-        </a>
-      </div>
+      <a
+        href="mailto:mahmoodi.maryam1993@gmail.com"
+        className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white text-[#1b0709] font-bold text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(255,255,255,0.24)]"
+      >
+        Start a Conversation <span aria-hidden="true">&#8599;</span>
+      </a>
     </div>
   </section>
 );
