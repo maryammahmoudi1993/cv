@@ -1,109 +1,115 @@
-import { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from './ThemeProvider.jsx';
+import { useEffect, useState } from 'react';
+import profileImage from '../../me.webp';
+
+const navItems = [
+  { id: 'about', label: 'About' },
+  { id: 'research', label: 'Research' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'github', label: 'GitHub' },
+  { id: 'blog', label: 'Blog' },
+];
 
 const Navigation = () => {
-            const { isDark, setIsDark } = useContext(ThemeContext);
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
-            const [activeSection, setActiveSection] = useState('hero');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
-            useEffect(() => {
-                const handleScroll = () => {
-                    const sections = ['hero', 'about', 'research', 'projects', 'skills', 'experience', 'education', 'blog', 'contact'];
-                    const current = sections.find(section => {
-                        const element = document.getElementById(section);
-                        if (element) {
-                            const rect = element.getBoundingClientRect();
-                            return rect.top <= 100 && rect.bottom >= 100;
-                        }
-                        return false;
-                    });
-                    if (current) setActiveSection(current);
-                };
+  useEffect(() => {
+    const sections = ['hero', ...navItems.map((item) => item.id)]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveSection(visible[0].target.id);
+      },
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
 
-            const navItems = [
-                { id: 'hero', label: 'Home' },
-                { id: 'about', label: 'About' },
-                { id: 'research', label: 'Research' },
-                { id: 'projects', label: 'Projects' },
-                { id: 'skills', label: 'Skills' },
-                { id: 'experience', label: 'Experience' },
-                { id: 'education', label: 'Education' },
-                { id: 'blog', label: 'Blog' },
-                { id: 'contact', label: 'Contact' }
-            ];
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
-            return (
-                <nav aria-label="Primary navigation" className="fixed top-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex justify-between items-center py-4">
-                            <a href="#hero" className="text-2xl font-bold text-primary-light dark:text-primary-dark">
-                                Maryam Mahmoudi
-                            </a>
-                            
-                            {/* Desktop Navigation */}
-                            <div className="hidden md:flex space-x-8">
-                                {navItems.map(item => (
-                                    <a
-                                        key={item.id}
-                                        href={`#${item.id}`}
-                                        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                                            activeSection === item.id
-                                                ? 'text-primary-light dark:text-primary-dark bg-blue-50 dark:bg-blue-900/20'
-                                                : 'text-text-secondary-light dark:text-text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark'
-                                        }`}
-                                    >
-                                        {item.label}
-                                    </a>
-                                ))}
-                            </div>
+  const closeMenu = () => setIsMenuOpen(false);
 
-                            <div className="flex items-center space-x-4">
-                                {/* Theme Toggle */}
-                                <button
-                                    type="button"
-                                    onClick={() => setIsDark(!isDark)}
-                                    aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
-                                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                                >
-                                    {isDark ? <i className="fas fa-sun"></i> : <i className="fas fa-moon"></i>}
-                                </button>
+  return (
+    <header className="sticky top-0 z-50 px-3.5 nav:px-7 pt-4">
+      <nav
+        aria-label="Primary"
+        className="max-w-content mx-auto flex items-center justify-between gap-4 rounded-full border border-white/10 bg-[rgba(28,10,12,0.62)] backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.35)] py-2.5 pl-3.5 pr-3"
+      >
+        <a href="#hero" className="flex items-center gap-2.5 font-display font-semibold text-[15px] tracking-tight text-white shrink-0 whitespace-nowrap">
+          <img
+            src={profileImage}
+            alt=""
+            width="32"
+            height="32"
+            loading="eager"
+            className="w-8 h-8 rounded-full object-cover bg-[#3a1114] border border-white/25"
+            style={{ objectPosition: '50% 12%' }}
+          />
+          Maryam Mahmoudi
+        </a>
 
-                                {/* Mobile Menu Button */}
-                                <button
-                                    type="button"
-                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                    aria-expanded={isMenuOpen}
-                                    aria-controls="mobile-navigation"
-                                    aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-                                    className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
-                                >
-                                    <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
-                                </button>
-                            </div>
-                        </div>
+        <div className="hidden nav:flex items-center gap-1.5 text-sm font-medium">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              aria-current={activeSection === item.id ? 'true' : undefined}
+              className={`px-2.5 py-2 rounded-full transition-colors duration-200 ${
+                activeSection === item.id ? 'text-white bg-white/[0.09]' : 'text-ink-secondary hover:text-white hover:bg-white/[0.07]'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
 
-                        {/* Mobile Navigation */}
-                        {isMenuOpen && (
-                            <div id="mobile-navigation" className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-                                {navItems.map(item => (
-                                    <a
-                                        key={item.id}
-                                        href={`#${item.id}`}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="block w-full text-left px-3 py-2 text-base font-medium text-text-secondary-light dark:text-text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark"
-                                    >
-                                        {item.label}
-                                    </a>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </nav>
-            );
-        };
+        <div className="flex items-center gap-2 shrink-0">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-[18px] py-2.5 rounded-full bg-white text-[#1b0709] font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(255,255,255,0.22)]"
+          >
+            Let&rsquo;s Talk <span aria-hidden="true">&#8599;</span>
+          </a>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            className="nav:hidden inline-flex items-center justify-center w-[42px] h-[42px] rounded-full border border-white/[0.14] bg-white/5 text-white text-lg"
+          >
+            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`} aria-hidden="true"></i>
+          </button>
+        </div>
+      </nav>
+
+      {isMenuOpen && (
+        <div
+          id="mobile-navigation"
+          className="max-w-content mx-auto mt-2.5 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-1.5 p-3.5 rounded-[22px] border border-white/10 bg-[rgba(28,10,12,0.92)] backdrop-blur-xl"
+        >
+          {[...navItems, { id: 'contact', label: 'Contact' }].map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={closeMenu}
+              className="px-3 py-3 rounded-2xl text-[#efd9da] font-semibold text-[15px]"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default Navigation;
