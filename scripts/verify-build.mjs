@@ -23,12 +23,13 @@ const componentFiles = [
   'Projects.jsx',
   'Experience.jsx',
   'Education.jsx',
+  'GitHubActivity.jsx',
   'Contact.jsx',
   'Footer.jsx',
 ];
 
 const requiredHtml = [
-  '<main>',
+  '<main ',
   'AI PhD Researcher',
   'National Yunlin University of Science and Technology',
   'Submitted to RSER',

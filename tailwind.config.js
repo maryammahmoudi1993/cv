@@ -1,20 +1,36 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        'light-bg': '#F9FAFB',
-        'dark-bg': '#0F172A',
-        'primary-light': '#2563EB',
-        'primary-dark': '#3B82F6',
-        'accent-light': '#14B8A6',
-        'accent-dark': '#2DD4BF',
-        'text-primary-light': '#1E293B',
-        'text-primary-dark': '#E2E8F0',
-        'text-secondary-light': '#64748B',
-        'text-secondary-dark': '#94A3B8',
+        bg: '#160608',
+        'bg-soft': '#1a0a0c',
+        'bg-footer': '#120507',
+        card: '#1c0a0c',
+        brand: {
+          DEFAULT: '#b51f28',
+          light: '#d94a51',
+          glow: '#6d1a20',
+        },
+        ink: {
+          DEFAULT: '#ffffff',
+          secondary: '#d2b3b6',
+          muted: '#b18d91',
+          tag: '#e8d5d6',
+          eyebrow: '#e0868a',
+        },
+      },
+      fontFamily: {
+        display: ['Sora', 'system-ui', 'sans-serif'],
+        body: ['Manrope', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      screens: {
+        nav: '1080px',
+      },
+      maxWidth: {
+        content: '1280px',
       },
     },
   },

@@ -2,50 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-    .gradient-bg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    .dark .gradient-bg {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
-    }
-    .skill-card {
-        transition: all 0.3s ease;
-    }
-    .skill-card:hover {
-        transform: translateY(-5px);
-    }
-    .project-card {
-        transition: all 0.3s ease;
-    }
-    .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    .dark .project-card:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    }
-    .typing-animation {
-        border-right: 2px solid #2563EB;
-        animation: blink 1s infinite;
-    }
-    @keyframes blink {
-        0%, 50% { border-color: transparent; }
-        51%, 100% { border-color: #2563EB; }
-    }
-    .dark .typing-animation {
-        border-right-color: #3B82F6;
-    }
-    @keyframes blink-dark {
-        0%, 50% { border-color: transparent; }
-        51%, 100% { border-color: #3B82F6; }
-    }
-    .fade-in {
-        animation: fadeIn 0.8s ease-in;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .scroll-smooth {
-        scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #160608;
+  color: #fff;
+  font-family: 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #b51f28;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #f4a3a7;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Scroll-reveal: sections fade/slide in as they enter the viewport. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse 90% 70% at 50% 18%, #6d1a20 0%, #481116 38%, #2a0a0d 65%, #160608 100%);
+}
+
+.contact-glow {
+  background: radial-gradient(ellipse 80% 120% at 50% 0%, #6d1a20 0%, #3a0e12 55%, #1d0709 100%);
+}
+
+.card-surface {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+  transition: transform 0.3s, border-color 0.3s;
+}
+.card-surface:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.card-tint {
+  background: linear-gradient(180deg, rgba(181, 31, 40, 0.16), rgba(255, 255, 255, 0.02));
+  transition: transform 0.3s, border-color 0.3s;
+}
+.card-tint:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.24);
+}
