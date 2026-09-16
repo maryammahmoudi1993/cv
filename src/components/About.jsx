@@ -2,6 +2,7 @@ import { useState } from 'react';
 import behzadImage from '../../behzadazizan.webp';
 import fatemeImage from '../../fatemenikdelfaz.webp';
 import resumeUrl from '../../My CV (Maryam Mahmoudi).pdf?url';
+import Eyebrow from './ui/Eyebrow.jsx';
 
 const recommendations = [
   {
@@ -24,65 +25,71 @@ const recommendations = [
 const RecommendationCard = ({ recommendation }) => {
   const [expanded, setExpanded] = useState(false);
   return (
-    <article className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-4">
-      <img src={recommendation.img} alt={recommendation.alt} width="128" height="128" loading="lazy" className="w-16 h-16 rounded-full object-cover border-2 border-primary-light dark:border-primary-dark" />
-      <div className="flex-1">
-        <p className="text-text-secondary-light dark:text-text-secondary-dark mb-3 italic">
-          {expanded ? recommendation.full : recommendation.short}
-        </p>
-        <div className="flex items-center justify-between gap-4">
+    <figure className="m-0 mb-3.5 last:mb-0 p-6 rounded-[20px] border border-white/[0.09] card-surface">
+      <blockquote className="m-0 mb-[18px] text-base leading-relaxed text-[#eed9da]">
+        {expanded ? recommendation.full : recommendation.short}
+      </blockquote>
+      <figcaption className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <img
+            src={recommendation.img}
+            alt={recommendation.alt}
+            width="128"
+            height="128"
+            loading="lazy"
+            className="w-11 h-11 rounded-full object-cover shrink-0"
+          />
           {recommendation.link ? (
-            <a href={recommendation.link} target="_blank" rel="noreferrer" className="text-primary-light dark:text-primary-dark font-medium">
+            <a href={recommendation.link} target="_blank" rel="noreferrer" className="text-sm leading-tight text-[#c3a1a4] font-semibold hover:text-white">
               {recommendation.name}
             </a>
           ) : (
-            <span className="text-primary-light dark:text-primary-dark font-medium">{recommendation.name}</span>
+            <span className="text-sm leading-tight text-[#c3a1a4] font-semibold">{recommendation.name}</span>
           )}
-          <button
-            type="button"
-            onClick={() => setExpanded(!expanded)}
-            className="text-primary-light dark:text-primary-dark"
-            aria-label={expanded ? 'Collapse recommendation' : 'Expand recommendation'}
-          >
-            <i className={`fas ${expanded ? 'fa-chevron-up' : 'fa-chevron-down'}`} aria-hidden="true"></i>
-          </button>
         </div>
-      </div>
-    </article>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-label={expanded ? 'Collapse recommendation' : 'Expand recommendation'}
+          className="shrink-0 text-ink-secondary hover:text-white"
+        >
+          <i className={`fas ${expanded ? 'fa-chevron-up' : 'fa-chevron-down'}`} aria-hidden="true"></i>
+        </button>
+      </figcaption>
+    </figure>
   );
 };
 
 const About = () => (
-  <section id="about" className="py-20 bg-light-bg dark:bg-dark-bg">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">About Me</h2>
-        <div className="w-24 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
+  <section id="about" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
+    <Eyebrow>About Me</Eyebrow>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-8 nav:gap-14 items-start">
+      <div>
+        <h2 className="m-0 mb-5 font-display font-semibold text-[clamp(26px,3.2vw,40px)] leading-[1.15] tracking-tight text-white text-balance">
+          AI research, engineered for real systems
+        </h2>
+        <p className="m-0 mb-4 text-[clamp(15px,1.15vw,17px)] leading-relaxed text-ink-secondary">
+          I am an AI researcher with a software engineering and backend foundation. My work connects data science and machine learning with the architecture, APIs, security controls, testing, and operational discipline required to ship dependable systems.
+        </p>
+        <p className="m-0 mb-4 text-[clamp(15px,1.15vw,17px)] leading-relaxed text-ink-secondary">
+          I build primarily with Python and Django, treating AI as a carefully bounded component within a well-engineered product—not as a substitute for deterministic business logic, observability, or human oversight.
+        </p>
+        <p className="m-0 mb-[26px] text-[clamp(15px,1.15vw,17px)] leading-relaxed text-ink-secondary">
+          From September 2026, I will pursue a PhD in Data Science and AI Applications at National Yunlin University of Science and Technology while continuing my research internship there under Prof. Arun Kumar Sangaiah.
+        </p>
+        <a
+          href={resumeUrl}
+          download="My CV (Maryam Mahmoudi).pdf"
+          className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full border border-white/[0.16] bg-white/[0.04] text-white font-semibold text-sm transition-colors duration-200 hover:bg-white/10 hover:border-white/30"
+        >
+          Download Full CV <span aria-hidden="true">&#8595;</span>
+        </a>
       </div>
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
-        <div>
-          <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-6">
-            AI research, engineered for real systems
-          </h3>
-          <p className="text-text-secondary-light dark:text-text-secondary-dark mb-6 leading-relaxed">
-            I am an AI researcher with a software engineering and backend foundation. My work connects data science and machine learning with the architecture, APIs, security controls, testing, and operational discipline required to ship dependable systems.
-          </p>
-          <p className="text-text-secondary-light dark:text-text-secondary-dark mb-6 leading-relaxed">
-            I build primarily with Python and Django, treating AI as a carefully bounded component within a well-engineered product—not as a substitute for deterministic business logic, observability, or human oversight.
-          </p>
-          <p className="text-text-secondary-light dark:text-text-secondary-dark mb-8 leading-relaxed">
-            From September 2026, I will pursue a PhD in Data Science and AI Applications at National Yunlin University of Science and Technology while continuing my research internship there under Prof. Arun Kumar Sangaiah.
-          </p>
-          <a href={resumeUrl} download="My CV (Maryam Mahmoudi).pdf" className="inline-block px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-400 transition-colors">
-            <i className="fas fa-file-pdf mr-2" aria-hidden="true"></i>Download Full CV
-          </a>
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-6">What coworkers say</h3>
-          <div className="space-y-6">
-            {recommendations.map((recommendation) => <RecommendationCard key={recommendation.name} recommendation={recommendation} />)}
-          </div>
-        </div>
+      <div>
+        <h3 className="m-0 mb-[18px] font-display font-semibold text-lg text-white">What coworkers say</h3>
+        {recommendations.map((recommendation) => (
+          <RecommendationCard key={recommendation.name} recommendation={recommendation} />
+        ))}
       </div>
     </div>
   </section>
