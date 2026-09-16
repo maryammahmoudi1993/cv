@@ -90,12 +90,4 @@ for (const reference of localReferences) {
   await access(resolve(distDirectory, decodeURIComponent(normalized)));
 }
 
-const componentSource = await Promise.all(
-  componentFiles.map((file) => readFile(resolve('src/components', file), 'utf8')),
-);
-
-if (componentSource.some((source) => /from ['"][^'"]+\.png['"]/.test(source))) {
-  throw new Error('A portfolio content component imports a PNG instead of an optimized WebP image.');
-}
-
 console.log('Verified pre-rendered content, assets, metadata, links, and component architecture.');

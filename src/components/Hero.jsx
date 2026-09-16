@@ -1,4 +1,4 @@
-import profileImage from '../../me.webp';
+import profileImage from '../../me.png';
 import resumeUrl from '../../My CV (Maryam Mahmoudi).pdf?url';
 
 const binaryRows = '1 0 0 1   0 1 1 0   1 0 0 1 1   0 1 0 0   1 1 0 1   0 0 1 0\n0 1 1 0   1 0 0 1   0 1 0 1 0   1 1 0 1   0 0 1 1   1 0 1 0';

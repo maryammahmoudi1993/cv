@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import profileImage from '../../me.webp';
+import profileImage from '../../me.png';
 
 const navItems = [
   { id: 'about', label: 'About' },
