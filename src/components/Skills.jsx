@@ -1,73 +1,32 @@
-const Skills = () => {
-            const skillCategories = [
-                {
-                    title: 'Languages',
-                    icon: 'fas fa-code',
-                    skills: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'PHP']
-                },
-                {
-                    title: 'Frameworks',
-                    icon: 'fas fa-layer-group',
-                    skills: ['Django', 'Django REST Framework', 'React', 'FastAPI', 'Celery']
-                },
-                {
-                    title: 'AI/ML Libraries',
-                    icon: 'fas fa-brain',
-                    skills: ['TensorFlow', 'PyTorch', 'Transformers', 'LangChain', 'Gemini', 'XGBoost', 'SHAP']
-                },
-                {
-                    title: 'DevOps & Tools',
-                    icon: 'fas fa-tools',
-                    skills: ['Docker', 'GitHub Actions', 'Linux', 'pytest', 'CI/CD', 'Observability']
-                },
-                {
-                    title: 'Databases',
-                    icon: 'fas fa-database',
-                    skills: ['PostgreSQL', 'pgvector', 'MySQL', 'Redis', 'MinIO']
-                },
-                {
-                    title: 'APIs & Integration',
-                    icon: 'fas fa-plug',
-                    skills: ['REST APIs', 'OpenAPI', 'JWT & RBAC', 'Webhooks', 'RAG', 'Tool Calling']
-                }
-            ];
+import Eyebrow from './ui/Eyebrow.jsx';
+import Tag from './ui/Tag.jsx';
 
-            return (
-                <section id="skills" className="py-20 bg-white dark:bg-slate-900">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">
-                                Technical Skills
-                            </h2>
-                            <div className="w-24 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {skillCategories.map((category, index) => (
-                                <article key={index} className="skill-card bg-light-bg dark:bg-slate-800 p-6 rounded-lg shadow-lg">
-                                    <div className="flex items-center mb-4">
-                                        <i className={`${category.icon} text-2xl text-primary-light dark:text-primary-dark mr-3`}></i>
-                                        <h3 className="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                            {category.title}
-                                        </h3>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                        {category.skills.map((skill, skillIndex) => (
-                                            <span 
-                                                key={skillIndex}
-                                                className="px-3 py-1 bg-primary-light/10 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark rounded-full text-sm font-medium"
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+const skillCategories = [
+  { title: 'Languages', skills: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'PHP'] },
+  { title: 'Frameworks', skills: ['Django', 'Django REST Framework', 'React', 'FastAPI', 'Celery'] },
+  { title: 'AI/ML Libraries', skills: ['TensorFlow', 'PyTorch', 'Transformers', 'LangChain', 'Gemini', 'XGBoost', 'SHAP'] },
+  { title: 'DevOps & Tools', skills: ['Docker', 'GitHub Actions', 'Linux', 'pytest', 'CI/CD', 'Observability'] },
+  { title: 'Databases', skills: ['PostgreSQL', 'pgvector', 'MySQL', 'Redis', 'MinIO'] },
+  { title: 'APIs & Integration', skills: ['REST APIs', 'OpenAPI', 'JWT & RBAC', 'Webhooks', 'RAG', 'Tool Calling'] },
+];
+
+const Skills = () => (
+  <section id="skills" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
+    <Eyebrow>Technical Skills</Eyebrow>
+    <h2 className="m-0 mb-8 nav:mb-11 font-display font-semibold text-[clamp(26px,3.2vw,40px)] tracking-tight text-white">
+      Technical Skills
+    </h2>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4">
+      {skillCategories.map((category) => (
+        <article key={category.title} className="p-[26px] rounded-[20px] border border-white/[0.09] card-surface">
+          <h3 className="m-0 mb-4 font-display font-semibold text-[17px] text-white">{category.title}</h3>
+          <ul className="m-0 p-0 flex flex-wrap gap-2">
+            {category.skills.map((skill) => <Tag key={skill}>{skill}</Tag>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+);
 
 export default Skills;
-

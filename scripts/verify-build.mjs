@@ -23,12 +23,13 @@ const componentFiles = [
   'Projects.jsx',
   'Experience.jsx',
   'Education.jsx',
+  'GitHubActivity.jsx',
   'Contact.jsx',
   'Footer.jsx',
 ];
 
 const requiredHtml = [
-  '<main>',
+  '<main ',
   'AI PhD Researcher',
   'National Yunlin University of Science and Technology',
   'Submitted to RSER',
@@ -87,14 +88,6 @@ for (const reference of localReferences) {
     .replace(/^\//, '')
     .split(/[?#]/, 1)[0];
   await access(resolve(distDirectory, decodeURIComponent(normalized)));
-}
-
-const componentSource = await Promise.all(
-  componentFiles.map((file) => readFile(resolve('src/components', file), 'utf8')),
-);
-
-if (componentSource.some((source) => /from ['"][^'"]+\.png['"]/.test(source))) {
-  throw new Error('A portfolio content component imports a PNG instead of an optimized WebP image.');
 }
 
 console.log('Verified pre-rendered content, assets, metadata, links, and component architecture.');

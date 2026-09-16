@@ -1,22 +1,23 @@
+import Eyebrow from './ui/Eyebrow.jsx';
+
 const education = [
   {
     degree: 'PhD in Data Science and AI Applications',
     university: 'National Yunlin University of Science and Technology (YunTech)',
     period: 'Starting September 2026',
+    tinted: true,
   },
   {
     degree: 'Master of Science in Electrical Engineering — Telecommunications',
     university: 'Ferdowsi University of Mashhad',
-    period: 'September 2016 – September 2021',
+    period: 'September 2016 – September 2021 | GPA: 17.17 / 20',
     thesis: 'Osteoporosis Assessment Using Ultrasound Waves with Deep Learning',
-    gpa: '17.17 / 20',
   },
   {
     degree: 'Bachelor of Science in Biomedical Engineering — Bioelectric',
     university: 'Sajad University of Technology',
-    period: 'September 2011 – September 2015',
+    period: 'September 2011 – September 2015 | GPA: 16 / 20',
     thesis: 'Epileptic Seizure Prediction with Neural Networks',
-    gpa: '16 / 20',
   },
 ];
 
@@ -28,39 +29,44 @@ const certificates = [
 ];
 
 const Education = () => (
-  <section id="education" className="py-20 bg-light-bg dark:bg-dark-bg">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">Education & Achievements</h2>
-        <div className="w-24 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
-      </div>
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-6">Academic Background</h3>
-          <div className="space-y-6">
-            {education.map((item) => (
-              <article key={item.degree} className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">{item.degree}</h4>
-                <p className="text-primary-light dark:text-primary-dark font-medium mb-2">{item.university}</p>
-                <p className="text-text-secondary-light dark:text-text-secondary-dark mb-2">
-                  {item.period}{item.gpa && ` | GPA: ${item.gpa}`}
+  <section id="education" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
+    <Eyebrow>Education &amp; Achievements</Eyebrow>
+    <h2 className="m-0 mb-8 nav:mb-11 font-display font-semibold text-[clamp(26px,3.2vw,40px)] tracking-tight text-white">
+      Education &amp; Achievements
+    </h2>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-5 items-start">
+      <div>
+        <h3 className="m-0 mb-[18px] font-display font-semibold text-[19px] text-white">Academic Background</h3>
+        <div className="flex flex-col gap-3.5">
+          {education.map((item) => (
+            <article
+              key={item.degree}
+              className={`p-6 rounded-[20px] border border-white/[0.09] ${item.tinted ? 'card-tint' : 'card-surface'}`}
+            >
+              <h4 className="m-0 mb-2 font-display font-semibold text-[17px] leading-snug text-white">{item.degree}</h4>
+              <p className="m-0 mb-1.5 text-sm text-ink-secondary">{item.university}</p>
+              <p className="m-0 font-mono text-xs text-[#f3a2a6]">{item.period}</p>
+              {item.thesis && (
+                <p className="mt-2.5 mb-0 text-sm leading-relaxed text-[#c3a1a4]">
+                  <strong className="text-white font-semibold">Thesis:</strong> {item.thesis}
                 </p>
-                {item.thesis && <p className="text-text-secondary-light dark:text-text-secondary-dark"><strong>Thesis:</strong> {item.thesis}</p>}
-              </article>
-            ))}
-          </div>
+              )}
+            </article>
+          ))}
         </div>
-        <aside>
-          <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-6">Certificates & Activities</h3>
-          <div className="space-y-4">
-            {certificates.map((certificate) => (
-              <div key={certificate} className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-lg flex items-start">
-                <i className="fas fa-certificate text-accent-light dark:text-accent-dark mr-3 mt-1" aria-hidden="true"></i>
-                <span className="text-text-primary-light dark:text-text-primary-dark">{certificate}</span>
-              </div>
-            ))}
-          </div>
-        </aside>
+      </div>
+      <div>
+        <h3 className="m-0 mb-[18px] font-display font-semibold text-[19px] text-white">Certificates &amp; Activities</h3>
+        <ul className="m-0 p-0 flex flex-col gap-3">
+          {certificates.map((certificate) => (
+            <li
+              key={certificate}
+              className="px-[22px] py-5 rounded-[18px] border border-white/[0.09] bg-white/[0.035] text-[15px] leading-relaxed text-[#e2c9cb] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.22]"
+            >
+              {certificate}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
