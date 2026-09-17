@@ -28,7 +28,8 @@ const Blog = () => (
         width="960"
         height="540"
         loading="lazy"
-        className="w-full h-[clamp(200px,24vw,300px)] object-cover rounded-2xl"
+        decoding="async"
+        className="w-full h-[clamp(200px,24vw,300px)] object-cover rounded-2xl bg-card"
       />
       <div>
         <p className="m-0 mb-3 font-mono text-xs tracking-[0.1em] text-[#f3a2a6]">{post.date} &middot; {post.readTime}</p>
