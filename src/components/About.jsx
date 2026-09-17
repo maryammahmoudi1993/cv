@@ -1,14 +1,20 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import behzadImage from '../../behzadazizan.webp';
 import fatemeImage from '../../fatemenikdelfaz.webp';
+import kamranImage from '../../kamranmiadi.webp';
+import mahdieImage from '../../mahdienikookar.webp';
 import resumeUrl from '../../My CV (Maryam Mahmoudi).pdf?url';
 import Eyebrow from './ui/Eyebrow.jsx';
+
+const INITIAL_VISIBLE_COUNT = 2;
 
 const recommendations = [
   {
     img: behzadImage,
     alt: 'Behzad Azizan',
-    name: 'Behzad Azizan — CTO and Senior Backend Developer at Inboxino',
+    name: 'Behzad Azizan',
+    role: 'CTO and Senior Backend Developer at Inboxino',
+    context: 'Behzad managed Maryam directly · May 2025',
     link: 'https://www.linkedin.com/in/behzadazizan/',
     short: '“Maryam is highly skilled in Python development and exceptionally professional in handling challenges and collaborating with teams.”',
     full: 'I’ve had the pleasure of working with Maryam for about a year now, and I can confidently say she’s not only highly skilled in development with Python, but also exceptionally professional in how she handles challenges and collaborates with both internal teams and users. Maryam consistently writes clean, well-documented, and maintainable code. What I truly value is that alongside her strong technical abilities, she also brings a thoughtful, respectful attitude, effective cross-team communication, and genuine care for user needs. Her sense of organization and responsibility is outstanding. I always feel confident assigning her important tasks, knowing she’ll handle them with precision and follow through if any issues arise.',
@@ -16,9 +22,29 @@ const recommendations = [
   {
     img: fatemeImage,
     alt: 'Fateme Nikdelfaz',
-    name: 'Fateme Nikdelfaz — Data Scientist and Machine Learning Engineer',
+    name: 'Fateme Nikdelfaz',
+    role: 'Machine Learning Engineer | Computer Vision & MLOps',
+    context: 'Fatemeh and Maryam studied together · July 2024',
     short: '“Maryam’s expertise, dedication, and teamwork have consistently elevated our AI projects. She is a brilliant and creative programmer.”',
-    full: 'I recommend Maryam for her outstanding contributions to the field of AI. Her expertise, dedication, and remarkable teamwork skills have consistently elevated our projects to new heights. Maryam is not only a brilliant AI professional but also an exceptionally creative and proficient programmer. She is known for her work ethic, and her hardworking nature greatly contributes to our team’s success.',
+    full: 'I recommend Maryam for her outstanding contributions to the field of AI. Her expertise, dedication, and remarkable teamwork skills have consistently elevated our projects to new heights. Maryam is not only a brilliant AI professional but also an exceptionally creative and proficient programmer. She is known for her work ethic, and her hardworking nature greatly contributes to our team’s success. I have no doubt that she will continue to excel in any AI-related role or endeavor she pursues as a dedicated and highly skilled coworker.',
+  },
+  {
+    img: kamranImage,
+    alt: 'Kamran Miadi',
+    name: 'Kamran Miadi',
+    role: 'DevOps Engineer, NodeJS Developer',
+    context: 'Kamran worked with Maryam on the same team · August 2025',
+    short: '“I am thrilled to recommend Maryam, an outstanding Python backend developer and data scientist, with whom I’ve collaborated closely as a DevOps engineer.”',
+    full: 'I am thrilled to recommend Maryam, an outstanding Python backend developer and data scientist, with whom I’ve collaborated closely as a DevOps engineer. She is exceptionally smart, dedicated, and possesses a deep understanding of her craft. Maryam’s extensive experience in backend development, combined with her strong expertise in AI and data science, enables her to deliver robust, innovative, and data-driven solutions. Her commitment to excellence and ability to tackle complex challenges make her an invaluable team member. I highly recommend Maryam for her technical expertise, professionalism, and collaborative approach.',
+  },
+  {
+    img: mahdieImage,
+    alt: 'Mahdie Nikookar',
+    name: 'Mahdie Nikookar',
+    role: 'Web Developer (Vue.js & React & Node.js) | Product Manager | MBA Candidate',
+    context: 'Mahdie worked with Maryam on the same team · August 2025',
+    short: '“Collaborating with Maryam at Inboxino was both enjoyable and professionally enriching.”',
+    full: 'Collaborating with Maryam at Inboxino was both enjoyable and professionally enriching. She brings solid expertise in Python development and a strong command of data science, which allowed her to contribute meaningful insights and effective solutions throughout our time working together. Maryam is a sharp thinker and a reliable teammate who approaches challenges with calm focus and creativity. Her respectful communication style, dedication to quality, and willingness to support others…',
   },
 ];
 
@@ -37,15 +63,21 @@ const RecommendationCard = ({ recommendation }) => {
             width="128"
             height="128"
             loading="lazy"
+            decoding="async"
             className="w-11 h-11 rounded-full object-cover shrink-0"
           />
-          {recommendation.link ? (
-            <a href={recommendation.link} target="_blank" rel="noreferrer" className="text-sm leading-tight text-[#c3a1a4] font-semibold hover:text-white">
-              {recommendation.name}
-            </a>
-          ) : (
-            <span className="text-sm leading-tight text-[#c3a1a4] font-semibold">{recommendation.name}</span>
-          )}
+          <div className="min-w-0">
+            {recommendation.link ? (
+              <a href={recommendation.link} target="_blank" rel="noreferrer" className="block text-sm leading-tight text-[#c3a1a4] font-semibold hover:text-white truncate">
+                {recommendation.name}
+              </a>
+            ) : (
+              <span className="block text-sm leading-tight text-[#c3a1a4] font-semibold truncate">{recommendation.name}</span>
+            )}
+            {recommendation.role && (
+              <span className="block text-xs leading-tight text-ink-muted truncate">{recommendation.role}</span>
+            )}
+          </div>
         </div>
         <button
           type="button"
@@ -56,7 +88,51 @@ const RecommendationCard = ({ recommendation }) => {
           <i className={`fas ${expanded ? 'fa-chevron-up' : 'fa-chevron-down'}`} aria-hidden="true"></i>
         </button>
       </figcaption>
+      {recommendation.context && (
+        <p className="m-0 mt-3 pt-3 border-t border-white/[0.08] font-mono text-[11px] tracking-[0.04em] text-ink-muted">
+          {recommendation.context}
+        </p>
+      )}
     </figure>
+  );
+};
+
+const RecommendationsList = () => {
+  const [showAll, setShowAll] = useState(false);
+  const panelId = useId();
+  const hiddenCount = recommendations.length - INITIAL_VISIBLE_COUNT;
+
+  return (
+    <div>
+      <h3 className="m-0 mb-[18px] font-display font-semibold text-lg text-white">What coworkers say</h3>
+      {recommendations.slice(0, INITIAL_VISIBLE_COUNT).map((recommendation) => (
+        <RecommendationCard key={recommendation.name} recommendation={recommendation} />
+      ))}
+      {hiddenCount > 0 && (
+        <div
+          id={panelId}
+          className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${showAll ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        >
+          <div className="overflow-hidden">
+            {recommendations.slice(INITIAL_VISIBLE_COUNT).map((recommendation) => (
+              <RecommendationCard key={recommendation.name} recommendation={recommendation} />
+            ))}
+          </div>
+        </div>
+      )}
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          onClick={() => setShowAll((v) => !v)}
+          aria-expanded={showAll}
+          aria-controls={panelId}
+          className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-ink-eyebrow transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-light rounded"
+        >
+          {showAll ? 'Show less' : `See ${hiddenCount} more recommendation${hiddenCount > 1 ? 's' : ''}`}
+          <i className={`fas ${showAll ? 'fa-chevron-up' : 'fa-chevron-down'} text-xs`} aria-hidden="true"></i>
+        </button>
+      )}
+    </div>
   );
 };
 
@@ -86,10 +162,7 @@ const About = () => (
         </a>
       </div>
       <div>
-        <h3 className="m-0 mb-[18px] font-display font-semibold text-lg text-white">What coworkers say</h3>
-        {recommendations.map((recommendation) => (
-          <RecommendationCard key={recommendation.name} recommendation={recommendation} />
-        ))}
+        <RecommendationsList />
       </div>
     </div>
   </section>
