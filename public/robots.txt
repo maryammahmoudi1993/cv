@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 Sitemap: https://maryammahmoudi1993.github.io/cv/sitemap.xml

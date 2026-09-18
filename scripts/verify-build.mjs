@@ -28,15 +28,13 @@ const componentFiles = [
   'Footer.jsx',
 ];
 
+// Projects/posts are now fetched from Supabase client-side (see docs/ADMIN_CMS_ARCHITECTURE.md),
+// so their titles are intentionally not asserted here — they aren't in the prerendered HTML.
 const requiredHtml = [
   '<main ',
   'AI PhD Researcher',
   'National Yunlin University of Science and Technology',
   'Submitted to RSER',
-  'BloomFlow AI',
-  'DocPilot AI',
-  'SupportPilot AI',
-  'https://bloomflow-ai.onrender.com',
   'mahmoodi.maryam1993@gmail.com',
   '© 2026 Maryam Mahmoudi',
   'property="og:title"',
