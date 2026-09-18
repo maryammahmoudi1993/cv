@@ -11,7 +11,7 @@ values (
   'how-i-used-llms-and-langchain-to-understand-customer-emotions-and-behaviors-in-real-time',
   'A comprehensive guide on implementing real-time customer sentiment analysis using Large Language Models and LangChain framework.',
   'https://medium.com/@mahmoodi.maryam1993/how-i-used-llms-and-langchain-to-understand-customer-emotions-and-behaviors-in-real-time-89c64bedd3d4',
-  '/blog-llm-langchain.webp',
+  '/cv/blog-llm-langchain.webp',
   'published',
   array['LLM', 'LangChain', 'Sentiment Analysis', 'Customer Analytics'],
   '5 min read',
