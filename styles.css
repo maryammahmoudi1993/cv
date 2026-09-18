@@ -82,3 +82,18 @@ body {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.24);
 }
+
+/* Admin panel form controls */
+.admin-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  background: #1f0c0f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.6rem 0.85rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+.admin-input:focus {
+  outline: none;
+  border-color: #b51f28;
+}
