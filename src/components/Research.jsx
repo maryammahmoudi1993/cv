@@ -11,9 +11,6 @@ const strings = {
     phdBody: 'Research internship at YunTech under Prof. Arun Kumar Sangaiah, combining AI research with implementation-focused software engineering.',
     reviewBadge: 'Review paper · Submitted to RSER · Under review',
     reviewTitle: 'Hybrid Digital Twins for Microbial Fuel Cell Systems in Microgravity: Combining Physical Models and Artificial Intelligence for Predictive Autonomous Control',
-    entry1Badge: 'In Progress · Target: IEEE Transactions',
-    entry1Title: 'Prototype-Guided Multimodal Transformer for Seizure Detection (SeizeIT2 Dataset)',
-    entry1Body: 'Combining EEG/ECG wearable signals with prototype-guided explainability to produce clinician-interpretable seizure detection. Targeting IEEE Transactions on Biomedical Engineering.',
     entry2Badge: 'In Progress',
     entry2Title: 'Physics-Informed Synthetic Pretraining for MFC Energy Forecasting (PIE-MFC)',
     entry2Body: 'Hybrid framework combining PINNs, Temporal Fusion Transformers, and SHAP-based XAI for interpretable energy prediction in bioelectrochemical systems.',
@@ -27,9 +24,6 @@ const strings = {
     phdBody: '於雲林科技大學擔任研究實習生，在 Arun Kumar Sangaiah 教授指導下，結合 AI 研究與注重實作的軟體工程。',
     reviewBadge: '綜述論文 · 已投稿至 RSER · 審稿中',
     reviewTitle: '微重力環境下微生物燃料電池系統的混合數位分身：結合物理模型與人工智慧實現預測性自主控制',
-    entry1Badge: '進行中 · 目標期刊：IEEE Transactions',
-    entry1Title: '基於原型引導的多模態 Transformer 癲癇偵測系統（SeizeIT2 資料集）',
-    entry1Body: '結合可穿戴式 EEG/ECG 訊號與原型引導可解釋性，產生臨床醫師可解讀的癲癇偵測結果，目標投稿至 IEEE 生物醫學工程學報。',
     entry2Badge: '進行中',
     entry2Title: '微生物燃料電池能量預測的物理資訊合成預訓練（PIE-MFC）',
     entry2Body: '結合 PINNs、時間融合 Transformer 與 SHAP 可解釋 AI 的混合框架，用於生物電化學系統的可解釋能量預測。',
@@ -66,15 +60,6 @@ const Research = () => {
           <h3 className="m-0 font-display font-semibold text-[clamp(18px,1.7vw,23px)] leading-snug text-white text-pretty">
             {t.reviewTitle}
           </h3>
-        </article>
-        <article className="p-6 nav:p-[34px] rounded-[22px] border border-white/10 card-surface">
-          <p className="inline-flex mb-4 px-3 py-1.5 rounded-full border border-white/[0.16] font-mono text-[11px] tracking-[0.1em] uppercase text-[#f3c3c5]">
-            {t.entry1Badge}
-          </p>
-          <h3 className="m-0 mb-2.5 font-display font-semibold text-[clamp(18px,1.7vw,23px)] leading-snug text-white text-pretty">
-            {t.entry1Title}
-          </h3>
-          <p className="m-0 text-[15px] leading-relaxed text-ink-muted">{t.entry1Body}</p>
         </article>
         <article className="p-6 nav:p-[34px] rounded-[22px] border border-white/10 card-surface">
           <p className="inline-flex mb-4 px-3 py-1.5 rounded-full border border-white/[0.16] font-mono text-[11px] tracking-[0.1em] uppercase text-[#f3c3c5]">
