@@ -4,10 +4,12 @@ const EMAIL = 'mahmoodi.maryam1993@gmail.com';
 
 const contacts = [
   { label: { en: 'Email', zh: '電子郵件' }, value: EMAIL, href: `mailto:${EMAIL}` },
-  { label: { en: 'LinkedIn', zh: 'LinkedIn' }, value: 'maryam-mahmoudi-8882857b', href: 'https://www.linkedin.com/in/maryam-mahmoudi-8882857b/' },
+  { label: { en: 'LinkedIn', zh: 'LinkedIn' }, value: 'Maryam Mahmoudi', href: 'https://www.linkedin.com/in/maryam-mahmoudi-8882857b/' },
   { label: { en: 'GitHub', zh: 'GitHub' }, value: 'maryammahmoudi1993', href: 'https://github.com/maryammahmoudi1993' },
   // Scholar profile not yet published — owner to update the href once the Google Scholar page is live.
   { label: { en: 'Google Scholar', zh: 'Google 學術搜尋' }, value: { en: '[Profile Coming Soon]', zh: '[個人頁面即將推出]' }, href: null },
+  // ORCID registration in progress — owner to update the href once the ORCID iD is issued.
+  { label: { en: 'ORCID', zh: 'ORCID 研究人員識別碼' }, value: { en: '[Registration in progress]', zh: '[註冊申請中]' }, href: null },
 ];
 
 const strings = {

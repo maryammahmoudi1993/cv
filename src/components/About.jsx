@@ -76,7 +76,7 @@ const recommendations = [
 const strings = {
   en: {
     coworkers: 'What coworkers say',
-    linkedinNote: 'Additional recommendations from YunTech research collaborators available on LinkedIn.',
+    linkedinNote: 'Research collaboration references available on request.',
     showLess: 'Show less',
     seeMore: (n) => `See ${n} more recommendation${n > 1 ? 's' : ''}`,
     collapseAria: 'Collapse recommendation',
@@ -90,7 +90,7 @@ const strings = {
   },
   zh: {
     coworkers: '同事怎麼說',
-    linkedinNote: '雲林科技大學研究合作者的更多推薦信請參閱 LinkedIn 個人頁面。',
+    linkedinNote: '研究合作推薦信可應要求提供。',
     showLess: '收合',
     seeMore: (n) => `查看更多 ${n} 則推薦`,
     collapseAria: '收合推薦信',

@@ -9,8 +9,14 @@ const experiences = [
     location: { en: 'Yunlin, Taiwan', zh: '台灣雲林' },
     period: { en: 'April 2026 – Sep 2026', zh: '2026 年 4 月 – 2026 年 9 月' },
     achievements: [
-      { en: 'Conducting AI research under Prof. Arun Kumar Sangaiah', zh: '在 Arun Kumar Sangaiah 教授指導下進行 AI 研究' },
-      { en: 'Combining research work with implementation-focused software engineering', zh: '結合研究工作與注重實作的軟體工程' },
+      {
+        en: 'Conducting AI research under Prof. Arun Kumar Sangaiah; contributing to review paper submitted to Renewable and Sustainable Energy Reviews (RSER)',
+        zh: '在 Arun Kumar Sangaiah 教授指導下進行 AI 研究，為投稿至 RSER 的綜述論文做出貢獻',
+      },
+      {
+        en: 'Designing hybrid ML architectures that combine physics-informed models with explainability components for bioelectrochemical systems',
+        zh: '設計結合物理資訊模型與可解釋性元件的混合機器學習架構，應用於生物電化學系統',
+      },
     ],
   },
   {
@@ -34,7 +40,10 @@ const experiences = [
     period: { en: 'September 2021 - August 2024', zh: '2021 年 9 月 – 2024 年 8 月' },
     achievements: [
       { en: 'Implemented deep learning models with TensorFlow to handle large datasets (50K+ records)', zh: '以 TensorFlow 實作深度學習模型，處理超過 5 萬筆紀錄的大型資料集' },
-      { en: 'Reduced data processing time significantly through optimized pipelines', zh: '透過最佳化管線大幅縮短資料處理時間' },
+      {
+        en: 'Reduced data processing time by over 35% through pipeline optimisation and batch processing refactors',
+        zh: '透過管線優化與批次處理重構，將資料處理時間縮短逾 35%',
+      },
       { en: 'Improved prediction model accuracy by 18% in internal forecasting projects', zh: '在內部預測專案中將模型準確率提升 18%' },
       { en: 'Successfully deployed ML models in 3 commercial company projects', zh: '成功將機器學習模型部署於 3 個商業專案' },
     ],
@@ -46,7 +55,10 @@ const experiences = [
     location: { en: 'Cologne, Germany (Remote)', zh: '德國科隆（遠端）' },
     period: { en: 'March 2020 - February 2022', zh: '2020 年 3 月 – 2022 年 2 月' },
     achievements: [
-      { en: 'Developed object detection models achieving 90% accuracy on a 1,000-image test set', zh: '開發物體偵測模型，在 1,000 張影像測試集上達到 90% 準確率' },
+      {
+        en: 'Developed object detection models achieving 90% accuracy on a controlled industrial defect dataset (1,000-image benchmark)',
+        zh: '在受控工業瑕疵資料集（1,000 張圖像基準）上開發達到 90% 準確率的物件偵測模型',
+      },
       { en: 'Used Transformer-based models (ViT) for enhanced real-time performance', zh: '使用基於 Transformer 的模型（ViT）提升即時運算效能' },
       { en: 'Reduced image processing runtime by 30% for real-time object recognition', zh: '將即時物體辨識的影像處理時間縮短 30%' },
       { en: 'Contributed to building scalable pipelines for image analysis and deployment', zh: '參與建置可擴充的影像分析與部署管線' },

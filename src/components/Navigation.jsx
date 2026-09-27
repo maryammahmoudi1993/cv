@@ -10,7 +10,6 @@ const navItems = [
   { id: 'experience', en: 'Experience', zh: '經歷' },
   { id: 'education', en: 'Education', zh: '學歷' },
   { id: 'github', en: 'GitHub', zh: 'GitHub' },
-  { id: 'blog', en: 'Blog', zh: '部落格' },
 ];
 
 const strings = {

@@ -7,7 +7,6 @@ import Skills from '../components/Skills.jsx';
 import Experience from '../components/Experience.jsx';
 import Education from '../components/Education.jsx';
 import GitHubActivity from '../components/GitHubActivity.jsx';
-import Blog from '../components/Blog.jsx';
 import Contact from '../components/Contact.jsx';
 import Footer from '../components/Footer.jsx';
 import useScrollReveal from '../hooks/useScrollReveal.js';
@@ -28,7 +27,6 @@ export default function Home() {
         <Experience />
         <Education />
         <GitHubActivity />
-        <Blog />
         <Contact />
       </main>
       <Footer />
