@@ -32,7 +32,7 @@ const componentFiles = [
 // so their titles are intentionally not asserted here — they aren't in the prerendered HTML.
 const requiredHtml = [
   '<main ',
-  'AI PhD Researcher',
+  'PhD Researcher in XAI',
   'National Yunlin University of Science and Technology',
   'Submitted to RSER',
   'mahmoodi.maryam1993@gmail.com',
