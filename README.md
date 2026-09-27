@@ -1,6 +1,6 @@
 # Maryam Mahmoudi — Portfolio
 
-Personal portfolio for Maryam Mahmoudi, an AI PhD researcher and backend engineer working at the intersection of intelligent systems and production-grade software.
+Personal portfolio for Maryam Mahmoudi, an incoming PhD researcher (Sep 2026) in explainable and trustworthy AI, and backend engineer working at the intersection of intelligent systems and production-grade software.
 
 The site highlights research at National Yunlin University of Science and Technology (YunTech), backend and applied-AI experience, and three engineering-focused projects: BloomFlow AI, DocPilot AI, and SupportPilot AI.
 

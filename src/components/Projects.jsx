@@ -10,6 +10,8 @@ const strings = {
     lede: 'Backend-first systems where AI operates within tested APIs, explicit policy boundaries, observable workflows, and documented architecture.',
     highlights: 'Engineering highlights',
     note: 'Note',
+    designHeading: 'Design & UX Work',
+    designLede: 'Selected interface and experience design projects',
   },
   zh: {
     eyebrow: '精選專案',
@@ -17,12 +19,16 @@ const strings = {
     lede: '以後端為核心的系統，讓 AI 在通過測試的 API、明確的政策邊界、可觀測的工作流程與文件化架構之中運作。',
     highlights: '工程亮點',
     note: '備註',
+    designHeading: '設計與使用者體驗作品',
+    designLede: '精選介面與體驗設計作品',
   },
 };
 
 const Projects = () => {
   const { lang } = useLanguage();
   const t = strings[lang];
+  const engineeringProjects = projects.filter((project) => project.category !== 'design');
+  const designProjects = projects.filter((project) => project.category === 'design');
 
   return (
     <section id="projects" data-reveal className="max-w-content mx-auto px-5 nav:px-10 py-14 nav:py-[110px]">
@@ -35,7 +41,7 @@ const Projects = () => {
       </p>
 
       <div className="flex flex-col gap-5">
-        {projects.map((project) => (
+        {engineeringProjects.map((project) => (
           <article
             key={project.id}
             className={`p-6 nav:p-9 rounded-3xl border ${
@@ -116,6 +122,40 @@ const Projects = () => {
           </article>
         ))}
       </div>
+
+      {designProjects.length > 0 && (
+        <div className="mt-12 nav:mt-16">
+          <h3 className="m-0 mb-2 font-display font-semibold text-[clamp(20px,2.2vw,28px)] tracking-tight text-white">
+            {t.designHeading}
+          </h3>
+          <p className="m-0 mb-6 text-sm leading-relaxed text-ink-muted">{t.designLede}</p>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+            {designProjects.map((project) => (
+              <article key={project.id} className="p-5 rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+                <div className="flex flex-wrap items-center gap-2 mb-2.5">
+                  {project.status && (
+                    <p className="m-0 inline-flex px-2.5 py-1 rounded-full border border-white/[0.14] font-mono text-[10px] tracking-[0.08em] uppercase text-[#c3a1a4]">
+                      {project.status[lang]}
+                    </p>
+                  )}
+                </div>
+                <h4 className="m-0 mb-1.5 font-display font-semibold text-[17px] leading-snug text-white">
+                  {project.title[lang]}
+                </h4>
+                <p className="m-0 mb-1 font-mono text-[11px] tracking-[0.06em] uppercase text-ink-muted">{project.role}</p>
+                <p className="m-0 mb-4 text-sm leading-relaxed text-[#c3a1a4]">{project.tagline[lang]}</p>
+                {project.stack?.length > 0 && (
+                  <ul className="m-0 p-0 flex flex-wrap gap-1.5">
+                    {project.stack.map((item) => (
+                      <Tag key={item}>{item}</Tag>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

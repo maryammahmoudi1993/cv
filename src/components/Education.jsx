@@ -13,7 +13,10 @@ const education = [
     id: 'msc',
     degree: { en: 'Master of Science in Electrical Engineering — Telecommunications', zh: '電機工程碩士——電信領域' },
     university: { en: 'Ferdowsi University of Mashhad', zh: '費爾多西大學（馬什哈德）' },
-    period: { en: 'September 2016 – September 2021 | GPA: 17.17 / 20', zh: '2016 年 9 月 – 2021 年 9 月 | GPA：17.17 / 20' },
+    period: {
+      en: 'September 2016 – September 2021 | GPA: 17.17 / 20 (approx. 3.8 / 4.0 · Ranked 3rd in cohort)',
+      zh: '2016 年 9 月 – 2021 年 9 月 | GPA：17.17 / 20（約 3.8 / 4.0 · 班級排名第三）',
+    },
     thesis: {
       en: 'Osteoporosis Assessment Using Ultrasound Waves with Deep Learning',
       zh: '利用超音波波形與深度學習進行骨質疏鬆症評估',

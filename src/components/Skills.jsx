@@ -5,7 +5,7 @@ import { useLanguage } from '../lib/LanguageContext.jsx';
 const skillCategories = [
   { en: 'Languages', zh: '程式語言', skills: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'PHP'] },
   { en: 'Frameworks', zh: '框架', skills: ['Django', 'Django REST Framework', 'React', 'FastAPI', 'Celery'] },
-  { en: 'AI/ML Libraries', zh: 'AI／機器學習函式庫', skills: ['TensorFlow', 'PyTorch', 'Transformers', 'LangChain', 'Gemini', 'XGBoost', 'SHAP'] },
+  { en: 'AI/ML Libraries', zh: 'AI／機器學習函式庫', skills: ['TensorFlow', 'PyTorch', 'Transformers', 'LangChain', 'Gemini', 'XGBoost'] },
   {
     en: 'Research & XAI',
     zh: '研究與可解釋 AI',

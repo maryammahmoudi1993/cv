@@ -135,6 +135,7 @@ export const projects = [
       ],
     },
     status: { en: 'In Development', zh: '開發中' },
+    category: 'design',
   },
   {
     id: 'bloom-studio-design',
@@ -158,5 +159,6 @@ export const projects = [
       ],
     },
     status: { en: 'Design Case Study', zh: '設計案例研究' },
+    category: 'design',
   },
 ];
